@@ -14,6 +14,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'simple_form', '~> 5.1'
 gem 'awesome_print', '~> 1.9', '>= 1.9.2'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.7'
+gem 'guard'
+gem 'guard-livereload', '~> 2.5', require: false
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -33,10 +36,10 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver'
+  #gem 'capybara', '>= 3.26'
+  #gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
+  #gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

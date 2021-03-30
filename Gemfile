@@ -14,6 +14,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'simple_form', '~> 5.1'
 gem 'awesome_print', '~> 1.9', '>= 1.9.2'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.7'
+gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'guard'
 gem 'guard-livereload', '~> 2.5', require: false
 

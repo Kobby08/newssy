@@ -1,0 +1,5 @@
+<h1>All Channels</h1>
+<% @channels.each do |channel| %>
+  <h3><%= link_to channel.name, channel %></h3>
+<% end %>
+<%= link_to "New Channel", new_channel_path  %>

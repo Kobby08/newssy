@@ -5,4 +5,5 @@ Rails
     root to: 'welcome#index'
 
     resources :links
+    resources :channels
   end

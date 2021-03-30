@@ -1,0 +1,5 @@
+<h1><%= @channel.name %></h1>
+<p><%= @channel.description %></p>
+<%= link_to "Back", channels_path  %>
+<%= link_to "Edit", edit_channel_path %>
+<%= link_to "Delete", @channel, method: :delete, data: {confirm: 'Are you sure?'}  %>

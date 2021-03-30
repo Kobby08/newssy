@@ -15,7 +15,7 @@ class LinksController < ApplicationController
     @link = Link.new(link_params)
     if @link.save
       flash[:notice] = 'News was created successfully'
-      redirect_to link_path(@link)
+      redirect_to @link
     else
       flash.now[:alert] = 'News was not created.'
       render 'new'
@@ -27,7 +27,7 @@ class LinksController < ApplicationController
   def update
     if @link.update(link_params)
       flash[:notice] = 'News was edited successfully'
-      redirect_to link_path(@link)
+      redirect_to @link
     else
       flash.now[:alert] = 'News was not updated.'
       render 'edit'
@@ -43,7 +43,7 @@ class LinksController < ApplicationController
   private
 
   def set_link
-    @link = Link.find_by!(params[:id])
+    @link = Link.find(params[:id])
   end
 
   def link_params

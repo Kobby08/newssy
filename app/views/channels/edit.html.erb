@@ -1,3 +1,8 @@
-<h1>Edit Channel</h1>
+<header>
+  <h1 class="text-center"> Edit Channel</h1>
+</header>
 <%= render 'form' %>
-<%= link_to "Back", channels_path  %>
+<br>
+<div class="col-sm-6 offset-3">
+  <%= link_to "Back", @channel, class: "btn btn-dark btn-lg btn-block"   %>
+</div>

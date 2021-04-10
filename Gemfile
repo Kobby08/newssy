@@ -17,7 +17,8 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.7'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'guard'
 gem 'guard-livereload', '~> 2.5', require: false
-
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem "pundit"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

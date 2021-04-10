@@ -1,5 +1,29 @@
-<h1><%= @channel.name %></h1>
-<p><%= @channel.description %></p>
-<%= link_to "Back", channels_path  %>
-<%= link_to "Edit", edit_channel_path %>
-<%= link_to "Delete", @channel, method: :delete, data: {confirm: 'Are you sure?'}  %>
+<header>
+  <h1 class="text-center"></h1>
+</header>
+<div class="row">
+  <div class="col-sm-6 offset-1">
+    <div class="channel-image">
+      <%= image_tag "3.png", size: "600x600", class: "img-fluid"%>
+    </div>
+    <div class="channel-description">
+      <p><%= @channel.description %></p>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="side">
+      <%= link_to "Back", channels_path, class: "btn btn-dark btn-sm"  %>
+      <%= link_to "Edit Channel", edit_channel_path, class: "btn btn-warning btn-sm" if policy(@channel).edit? %>
+      <%= link_to "Delete Channel", @channel, class: "btn btn-dark btn-sm", method: :delete, data: {confirm: "Are you sure?"} if policy(@channel).destroy?  %>
+    </div>
+    <br>
+    <div class="channel-info">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link"  data-toggle="pill" role="tab"  aria-selected="false">CHANNEL INFO</a>
+        <a class="nav-link"  data-toggle="pill" role="tab"  aria-selected="false">Name: <%= @channel.name %></a>
+        <a class="nav-link"  data-toggle="pill" role="tab"  aria-selected="false">Created: <%= @channel.created_at %></a>
+        <a class="nav-link"  data-toggle="pill" role="tab"  aria-selected="false">Subscribers: 150</a>
+      </div>
+    </div>
+  </div>
+</div>

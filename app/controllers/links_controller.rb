@@ -1,18 +1,31 @@
 class LinksController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_link, except: %i[index new create]
+  before_action :check_channel, only: [:create]
 
   def index
-    @links = Link.all
+    @links = Link.all.order(created_at: :desc)
+    authorize @links, :index?
   end
 
-  def show; end
+  def show
+    authorize @link, :show?
+  end
 
   def new
     @link = Link.new
+    authorize @link, :new?
   end
 
   def create
-    @link = Link.new(link_params)
+    @link =
+      Link.new(
+        link_params.merge(
+          user_id: current_user.id,
+          channel_id: current_user.channel.id,
+        ),
+      )
+    authorize @link, :create?
     if @link.save
       flash[:notice] = 'News was created successfully'
       redirect_to @link
@@ -22,9 +35,13 @@ class LinksController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @link, :edit?
+  end
 
   def update
+    authorize @link, :update?
+
     if @link.update(link_params)
       flash[:notice] = 'News was edited successfully'
       redirect_to @link
@@ -35,6 +52,8 @@ class LinksController < ApplicationController
   end
 
   def destroy
+    authorize @link, :destroy?
+
     @link.destroy
     flash[:alert] = 'News was deleted.'
     redirect_to links_path
@@ -47,6 +66,12 @@ class LinksController < ApplicationController
   end
 
   def link_params
-    params.required(:link).permit(:title, :url)
+    params.required(:link).permit(:title, :url, :channel_id, :user_id)
+  end
+
+  def check_channel
+    if current_user.channel.nil?
+      flash.now[:notice] = 'You need a channel to create a link'
+    end
   end
 end

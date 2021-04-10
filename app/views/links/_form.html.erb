@@ -1,5 +1,7 @@
-<%= simple_form_for @link do |f| %>
-  <%= f.input :title %>
-  <%= f.input :url %>
-  <%= f.button :submit, class: "btn btn-primary" %>
-<% end %>
+<div class="col-sm-6 offset-3">
+  <%= simple_form_for @link do |f| %>
+    <%= f.input :title %>
+    <%= f.input :url %>
+    <%= f.button :submit, class: "btn btn-warning btn-lg btn-block" %>
+  <% end %>
+</div>

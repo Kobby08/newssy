@@ -1,6 +1,7 @@
 class Link < ApplicationRecord
   # associations
-  #belongs_to :channel
+  belongs_to :channel
+  belongs_to :user
 
   # validations
   validates_presence_of :title, minimum: 10

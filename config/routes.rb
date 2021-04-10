@@ -2,7 +2,7 @@ Rails
   .application
   .routes
   .draw do
-    root to: 'welcome#index'
+    root to: 'links#index'
 
     devise_for :users
 

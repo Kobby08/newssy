@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="comment-widgets m-b-20">
+      <div class="d-flex flex-row comment-row">
+        <div class="comment-text w-100">
+          <h5><%= comment.user.username %> <span  class="badge badge-warning"><%= time_ago_in_words(comment.created_at) %> ago </span></h5>
+          <p class="m-b-5 m-t-10"><%= comment.body %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>

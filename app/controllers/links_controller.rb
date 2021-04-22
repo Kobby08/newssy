@@ -10,6 +10,7 @@ class LinksController < ApplicationController
 
   def show
     authorize @link, :show?
+    @comment = Comment.new
   end
 
   def new
@@ -27,10 +28,10 @@ class LinksController < ApplicationController
       )
     authorize @link, :create?
     if @link.save
-      flash[:notice] = 'News was created successfully'
+      flash[:notice] = 'News link was created successfully'
       redirect_to @link
     else
-      flash.now[:alert] = 'News was not created.'
+      flash.now[:alert] = 'News link was not created.'
       render 'new'
     end
   end
@@ -43,10 +44,10 @@ class LinksController < ApplicationController
     authorize @link, :update?
 
     if @link.update(link_params)
-      flash[:notice] = 'News was edited successfully'
+      flash[:notice] = 'News link was updated successfully'
       redirect_to @link
     else
-      flash.now[:alert] = 'News was not updated.'
+      flash.now[:alert] = 'News link was not updated.'
       render 'edit'
     end
   end

@@ -13,6 +13,17 @@
         </div>
       </div>
     </div>
+    <!-- comment section -->
+    <header>
+      <h4>Recent Comments</h4>
+      <h6>Latest Comments section by users</h6>
+    </header>
+    <% if @link.comments.any? %>
+      <%= render @link.comments %>
+    <% else %>
+      <h5 class="text-center">  No Comments yet...</h5>
+    <% end %>
+    <%= render "comments/form" %>
   </div>
   <div class="col-sm-4 offset">
     <div class="side">

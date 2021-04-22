@@ -12,7 +12,7 @@
             <h4 class="link-title mb-1 mt-2"><%= link.title %></h4>
             <div class="link-meta mb-1"><span class="date">Submitted By: <%= link.channel.name %> | </span><span class="time"><%= time_ago_in_words(link.created_at) %> ago</span></div>
             <div class="reactions">
-              <span><a href="#" class="badge badge-warning">8 comments</a></span>
+              <span><a href="#" class="badge badge-warning"><%= link.comments.count %> comments</a></span>
             </div>
           </div>
         </div>

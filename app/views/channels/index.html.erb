@@ -12,7 +12,7 @@
             <h4 class="link-title mb-1 mt-2"><%= channel.name %></h4>
             <div class="link-meta mb-1"><span class="date">Created: <%= channel.created_at %></span></div>
             <div class="reactions">
-              <span><a href="#" class="badge badge-warning">150 subscribers</a></span>
+              <span><a href="#" class="badge badge-warning"><%= channel.subscribed_users.count %> subscribers</a></span>
             </div>
           </div>
         </div>

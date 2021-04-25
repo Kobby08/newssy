@@ -9,5 +9,7 @@ Rails
     resources :links do
       resources :comments
     end
-    resources :channels
+    resources :channels do
+      resources :subscriptions, only: %i[index create destroy]
+    end
   end

@@ -23,7 +23,7 @@
     <% else %>
       <h5 class="text-center">  No Comments yet...</h5>
     <% end %>
-    <%= render "comments/form" %>
+    <%= render "comments/form" if policy(@comment).create?%>
   </div>
   <div class="col-sm-4 offset">
     <div class="side">

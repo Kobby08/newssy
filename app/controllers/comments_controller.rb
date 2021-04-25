@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
       @link.comments.build(
         comment_params.merge(link_id: @link.id, user_id: current_user.id),
       )
+    authorize @comment, :create?
     if @comment.save
       flash[:notice] = 'Comment was created successfully'
       redirect_to @link

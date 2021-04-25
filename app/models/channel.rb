@@ -1,7 +1,9 @@
 class Channel < ApplicationRecord
   # associations
-  has_many :links, dependent: :destroy
   belongs_to :user
+  has_many :links, dependent: :destroy
+  has_many :subscriptions, dependent: :destroy
+  has_many :subscribed_users, through: :subscriptions, source: :user
 
   # validations
   validates_presence_of :name, unique: true

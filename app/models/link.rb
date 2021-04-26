@@ -2,6 +2,7 @@ class Link < ApplicationRecord
   # associations
   belongs_to :channel
   belongs_to :user
+  belongs_to :category
   has_many :comments, dependent: :destroy
 
   # validations

@@ -5,6 +5,7 @@ class CreateLinks < ActiveRecord::Migration[6.1]
       t.string :url, null: false
       t.integer :user_id, index: true
       t.integer :channel_id, index: true
+      t.integer :category_id, index: true
 
       t.timestamps
     end

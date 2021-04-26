@@ -12,4 +12,5 @@ Rails
     resources :channels do
       resources :subscriptions, only: %i[index create destroy]
     end
+    resources :categories
   end

@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   # associations
   has_one :channel
+  has_many :categories
   has_many :links, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :subscriptions, dependent: :destroy

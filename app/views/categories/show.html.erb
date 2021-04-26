@@ -4,12 +4,12 @@
 <div class="row">
   <!-- Link Content-->
   <div class="col-sm-9 float-right">
-    <% @links.each do |link| %>
+    <% @category_links.each do |link| %>
       <%= link_to link do  %>
         <div class="row">
-          <img class="mr-3 img-fluid" src="assets/4.png" alt="image" width="100" height="50">
+          <%= image_tag "4.png", size: "150x50", class: "img-fluid"%>
           <div class="link-body">
-            <h4 class="link-title mb-1 mt-2"><%= truncate(link.title, length: 60) %></h4>
+            <h4 class="link-title mb-1 mt-2"><%= truncate(link.title, length: 55) %></h4>
             <div class="link-meta mb-1"><span class="date">Submitted By: <%= link.channel.name %> | </span><span class="time"><%= time_ago_in_words(link.created_at) %> ago</span></div>
             <div class="reactions">
               <span><a href="#" class="badge badge-warning"><%= link.comments.count %> comments</a></span>
@@ -25,9 +25,9 @@
     <%= link_to "Channels", channels_path, class: "btn btn-dark btn-block" %> <br>
     <div class="category">
       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <li class="nav-link active" data-toggle="pill" role="tab"  aria-selected="true"><%= link_to "All News", links_path  %></li>
-        <% Category.all.each do |category| %>
-          <a class="nav-link"  data-toggle="pill" role="tab"  aria-selected="false"><%= link_to category.name, category_path(category) %></a>
+        <%= link_to "All News", links_path, class: "nav-link active"  %>
+        <% @categories.each do |category| %>
+          <a class="nav-link" ><%= link_to category.name, category_path(category) %></a>
         <% end %>
       </div>
     </div>

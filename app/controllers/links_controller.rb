@@ -1,7 +1,6 @@
 class LinksController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_link, except: %i[index new create]
-  before_action :check_channel, only: [:create]
 
   def index
     @links = Link.all.order(created_at: :desc)
@@ -67,12 +66,8 @@ class LinksController < ApplicationController
   end
 
   def link_params
-    params.required(:link).permit(:title, :url, :channel_id, :user_id)
-  end
-
-  def check_channel
-    if current_user.channel.nil?
-      flash.now[:notice] = 'You need a channel to create a link'
-    end
+    params
+      .required(:link)
+      .permit(:title, :url, :channel_id, :user_id, :category_id)
   end
 end

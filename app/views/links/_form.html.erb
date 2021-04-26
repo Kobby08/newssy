@@ -2,6 +2,7 @@
   <%= simple_form_for @link do |f| %>
     <%= f.input :title %>
     <%= f.input :url %>
+    <%= f.input :category_id, collection: Category.all, label: "Select category", prompt: true %>
     <%= f.button :submit, class: "btn btn-warning btn-lg btn-block" %>
   <% end %>
 </div>

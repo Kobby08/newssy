@@ -5,9 +5,6 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <%= link_to "Create Link", new_link_path, class: "btn btn-outline-warning btn-sm mt-1"  %>
-      </li>
       <li class="nav-item active">
         <%= link_to "Home", root_path, class: "nav-link" %>
       </li>
@@ -15,6 +12,11 @@
         <%= link_to "News", links_path, class: "nav-link"  %>
       </li>
       <% if user_signed_in? %>
+        <% if current_user.channel.present? %>
+          <li class="nav-item">
+            <%= link_to "Create Link", new_link_path, class: "btn btn-outline-warning btn-sm mt-1"  %>
+          </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to "Account", edit_user_registration_path, class:"nav-link" %>
         </li>

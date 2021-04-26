@@ -1,0 +1,35 @@
+<header>
+  <h3>Created Category List</h3>
+</header>
+<div class="row">
+  <!-- Link Content-->
+  <% if current_user.categories.any? %>
+    <div class="col-sm-9 float-right">
+      <% current_user.categories.each do |category| %>
+        <div class="row">
+          <div class="col 9">
+            <div class="row">
+              <div class="link-body">
+                <h4 class="link-title mb-1 mt-2"><%= category.name %></h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <%= link_to "Edit", edit_category_path(category), class: "btn btn-warning btn-lg btn-sm"   %>
+            <%= link_to "Delete", category, class: "btn btn-dark btn-lg btn-sm", method: :delete   %>
+          </div>
+        </div>
+        <hr>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="col-sm-6 offset-3">
+      <img class="img-fluid" src="assets/5.png" alt="image" width="340" height="400">
+      <h5>No categories found.....</h5>
+    </div>
+  <% end %>
+  <div class="col-sm-3">
+    <%= link_to "New Category", new_category_path, class: "btn btn-warning btn-lg btn-sm"%>
+    <%= link_to "Back", current_user.channel, class: "btn btn-dark btn-lg btn-sm"%>
+  </div>
+</div>

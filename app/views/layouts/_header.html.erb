@@ -6,29 +6,33 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <%= link_to "Home", root_path, class: "nav-link" %>
+        <%= link_to "Home", main_app.root_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "News", links_path, class: "nav-link"  %>
+        <%= link_to "News", main_app.links_path, class: "nav-link"  %>
       </li>
       <% if user_signed_in? %>
         <% if current_user.channel.present? %>
           <li class="nav-item">
-            <%= link_to "Create Link", new_link_path, class: "btn btn-outline-warning btn-sm mt-1"  %>
+            <%= link_to "Create Link", main_app.new_link_path, class: "btn btn-outline-warning btn-sm mt-1"  %>
           </li>
         <% end %>
         <li class="nav-item">
-          <%= link_to "Account", edit_user_registration_path, class:"nav-link" %>
+          <%= link_to "Account", main_app.edit_user_registration_path, class:"nav-link" %>
         </li>
+        <li>
+          <%= link_to notifications_path do %>
+            <%= fa_icon "bell" %><span class="badge badge-light"><%= Notification.unread_count(current_user) %></span></li>
+        <% end %>
         <li class="nav-item">
-          <%= link_to "Sign Out", destroy_user_session_path, class: "nav-link", method: :delete %>
+          <%= link_to "Sign Out", main_app.destroy_user_session_path, class: "nav-link", method: :delete %>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+          <%= link_to "Sign Up", main_app.new_user_registration_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Sign In", main_app.new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
     </ul>

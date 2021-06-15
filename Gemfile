@@ -20,6 +20,9 @@ gem 'guard-livereload', '~> 2.5', require: false
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem "pundit"
 gem 'nokogiri', '~> 1.10.3'
+gem 'notifications'
+gem 'acts_as_votable'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.7'
 
 
 group :development, :test do

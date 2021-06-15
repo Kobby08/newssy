@@ -11,6 +11,15 @@
           <div class="link-meta mb-1"><span class="date">Submitted By: <%= @link.channel.name %> | </span><span class="time"><%= time_ago_in_words(@link.created_at) %> ago </span></div>
           <%= link_to "Visit Url", "#{@link.url}", target: "_blank", class: "btn btn-dark btn-sm"  %>
         </div>
+        <br>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <%= link_to like_link_path(@link), method: :put do %>
+            <button type="button" class="btn btn-warning"><span><%= fa_icon "thumbs-up" %></span> <%= @link.get_likes.size %></button>
+          <% end %>
+          <%= link_to dislike_link_path(@link), method: :put do %>
+            <button type="button" class="btn btn-warning"><span><%= fa_icon "thumbs-down" %></span> <%= @link.get_dislikes.size %></button>
+          <% end %>
+        </div>
       </div>
     </div>
     <!-- comment section -->

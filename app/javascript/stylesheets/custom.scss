@@ -71,3 +71,23 @@ header {
 .link-comment #comment_body {
     height: 100px;
 }
+
+.svg-inline--fa.fa-w-14 {
+    width: .875em;
+    color: darkgray;
+    margin-top: 5px;
+    font-size: 25px;
+}
+
+.media-right {
+    display: flexbox;
+    vertical-align: top;
+    float: right;
+    margin-left: 50px;
+}
+
+.notifications {
+    padding: 10px;
+    margin: 20px;
+    border: none;
+}

@@ -1,0 +1,4 @@
+<%= link_to main_app.link_path(notification.second_target)  do %>
+  <strong> <%= notification.actor.name %></strong> commented on your news <strong> <%= notification.second_target.title %></strong>
+  <p><%= notification.target.body %></p>
+<% end %>

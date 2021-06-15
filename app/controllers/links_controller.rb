@@ -51,6 +51,16 @@ class LinksController < ApplicationController
     end
   end
 
+  def like
+    @link.liked_by current_user
+    redirect_to @link
+  end
+
+  def dislike
+    @link.disliked_by current_user
+    redirect_to @link
+  end
+
   def destroy
     authorize @link, :destroy?
 

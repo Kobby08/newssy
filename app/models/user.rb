@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable
+  acts_as_voter
 
   # associations
   has_one :channel
@@ -23,5 +24,9 @@ class User < ApplicationRecord
   # interface
   def is_a_subscriber?(channel)
     return true if subscribed_channels.include?(channel)
+  end
+
+  def name
+    "#{first_name} #{last_name}"
   end
 end

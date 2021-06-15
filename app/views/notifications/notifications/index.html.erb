@@ -1,0 +1,25 @@
+<header>
+  <h3>Notifications</h3>
+</header>
+<div class="heading clearfix">
+  <span class="pull-xs-right">
+    <%= link_to " Back", main_app.root_path, class: "btn btn-sm btn-dark float-right " %>
+    <%= link_to t('notifications.clean_all'), notifications.clean_notifications_path, class: 'btn btn-sm btn-warning float-right mr-2', method: 'delete' %>
+  </span>
+</div>
+<div class="notifications row">
+  <br>
+  <div class="list">
+    <% if @notifications.blank? %>
+      <div class="no-records"><%= t('notifications.no_records') %></div>
+    <% else %>
+      <% @notification_groups.each do |group, notifications| %>
+        <div class="notification-group">
+          <div class="group-title"><%= group %></div>
+          <%= render notifications %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= paginate @notifications %>
+</div>

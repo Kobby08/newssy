@@ -16,6 +16,7 @@ gem "pundit"
 gem 'nokogiri', '~> 1.10.3'
 gem 'notifications'
 gem 'acts_as_votable'
+gem 'pry', '~> 0.14.1'
 
 
 group :development, :test do

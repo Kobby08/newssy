@@ -17,6 +17,8 @@ gem 'nokogiri', '~> 1.10.3'
 gem 'notifications'
 gem 'acts_as_votable'
 gem 'pry', '~> 0.14.1'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
 
 
 group :development, :test do
@@ -28,7 +30,6 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   gem 'guard'
   gem 'guard-livereload', '~> 2.5', require: false
-  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
